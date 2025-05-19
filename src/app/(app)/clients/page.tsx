@@ -17,6 +17,7 @@ import {
 } from "@/components/ui/table";
 import { Badge } from "@/components/ui/badge";
 import { ScrollArea } from "@/components/ui/scroll-area";
+import { FormattedDate } from "@/components/ui/formatted-date";
 
 // Mock data for clients
 const mockClients = [
@@ -122,7 +123,9 @@ export default function ClientsPage() {
                         {client.status}
                       </Badge>
                     </TableCell>
-                    <TableCell>{new Date(client.dataCadastro).toLocaleDateString()}</TableCell>
+                    <TableCell>
+                      <FormattedDate dateString={client.dataCadastro} options={{ day: '2-digit', month: '2-digit', year: 'numeric' }} />
+                    </TableCell>
                     <TableCell className="text-right space-x-2">
                       <Button variant="ghost" size="icon" onClick={() => handleEditClient(client)} title="Editar">
                         <Edit3 className="h-4 w-4" />

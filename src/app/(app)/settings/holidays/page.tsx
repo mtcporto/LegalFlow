@@ -6,6 +6,7 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/com
 import { CalendarDays, PlusCircle } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { FormattedDate } from "@/components/ui/formatted-date";
 
 export default function HolidaysSettingsPage() {
   // Placeholder state and functions
@@ -36,7 +37,11 @@ export default function HolidaysSettingsPage() {
               {holidays.map(holiday => (
                 <li key={holiday.id} className="p-3 border rounded-md flex justify-between items-center">
                   <div>
-                    <p className="font-medium">{new Date(holiday.date + "T00:00:00").toLocaleDateString()} - {holiday.description}</p>
+                    <p className="font-medium">
+                      <FormattedDate dateString={holiday.date} options={{ day: '2-digit', month: '2-digit', year: 'numeric' }} />
+                      {' - '}
+                      {holiday.description}
+                    </p>
                   </div>
                   <div className="space-x-2">
                     <Button variant="outline" size="sm">Editar</Button>

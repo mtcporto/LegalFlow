@@ -25,7 +25,8 @@ import {
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from "@/components/ui/accordion"
+} from "@/components/ui/accordion";
+import { FormattedDate } from "@/components/ui/formatted-date";
 
 
 // Mock data for cases
@@ -181,7 +182,11 @@ export default function CasesPage() {
                          >
                           {caseItem.status}
                         </Badge>
-                        <span className="text-xs text-muted-foreground">{new Date(caseItem.dataAbertura).toLocaleDateString()}</span>
+                        <FormattedDate 
+                          dateString={caseItem.dataAbertura} 
+                          className="text-xs text-muted-foreground" 
+                          options={{ day: '2-digit', month: '2-digit', year: 'numeric' }}
+                        />
                         <div className="flex space-x-1">
                             <Button variant="ghost" size="icon" onClick={(e) => {e.stopPropagation(); handleEditCase(caseItem)}} title="Editar Pasta">
                                 <Edit3 className="h-4 w-4" />

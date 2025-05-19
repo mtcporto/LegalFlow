@@ -188,11 +188,11 @@ export default function CasesPage() {
                           options={{ day: '2-digit', month: '2-digit', year: 'numeric' }}
                         />
                         <div className="flex space-x-1">
-                            <Button variant="ghost" size="icon" onClick={(e) => {e.stopPropagation(); handleEditCase(caseItem)}} title="Editar Pasta">
-                                <Edit3 className="h-4 w-4" />
+                            <Button asChild variant="ghost" size="icon" onClick={(e) => {e.stopPropagation(); handleEditCase(caseItem)}} title="Editar Pasta">
+                                <span><Edit3 className="h-4 w-4" /></span>
                             </Button>
-                            <Button variant="ghost" size="icon" onClick={(e) => {e.stopPropagation(); handleDeleteCase(caseItem.id)}} title="Excluir Pasta">
-                                <Trash2 className="h-4 w-4 text-destructive" />
+                            <Button asChild variant="ghost" size="icon" onClick={(e) => {e.stopPropagation(); handleDeleteCase(caseItem.id)}} title="Excluir Pasta">
+                                <span><Trash2 className="h-4 w-4 text-destructive" /></span>
                             </Button>
                         </div>
                       </div>
@@ -220,3 +220,4 @@ export default function CasesPage() {
     </div>
   );
 }
+
